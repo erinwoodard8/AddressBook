@@ -127,6 +127,9 @@ public class Program {
             printInstructions();
             choice = scanner.nextInt();
             scanner.nextLine();
+            if (choice <=0 || choice > 6){
+                System.out.println("Invalid option, please try again.");
+            }
 
             switch(choice) {
                 case 1 -> addEntry();
