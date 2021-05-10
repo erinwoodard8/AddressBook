@@ -10,8 +10,7 @@ public class Program {
     private static AddressBook book = new AddressBook();
 
     public static void printInstructions() {
-        System.out.println("=========== Welcome to Address Book ==========");
-        System.out.println("/n Press ");
+        System.out.println("\n Press To:");
         System.out.println("\t 1 - Add an Entry");
         System.out.println("\t 2 - Remove an Entry");
         System.out.println("\t 3 - Search for a specific Entry");
@@ -43,7 +42,6 @@ public class Program {
     //searches for email in book and removes that entry if entry exists
     public static void removeEntry() {
         System.out.println("Please enter email of entry you wish to delete");
-        scanner.nextLine();
         String email = scanner.nextLine();
 
         if(book.removeAddressBook(email) == true) {
@@ -94,7 +92,6 @@ public class Program {
 
     public static void searchLastName() {
         System.out.println("Enter your search: ");
-        scanner.nextLine();
         String search = scanner.nextLine();
         ArrayList results = book.searchLast(search);
         System.out.println("YOUR SEARCH RESULTS");
@@ -104,7 +101,6 @@ public class Program {
 
     public static void searchPhoneNumber() {
         System.out.println("Enter your search: ");
-        scanner.nextLine();
         String search = scanner.nextLine();
         ArrayList results = book.searchPhone(search);
         System.out.println("YOUR SEARCH RESULTS");
@@ -114,7 +110,6 @@ public class Program {
 
     public static void searchEmailAddy() {
         System.out.println("Enter your search: ");
-        scanner.nextLine();
         String search = scanner.nextLine();
         ArrayList results = book.searchEmail(search);
         System.out.println("YOUR SEARCH RESULTS");
@@ -124,11 +119,25 @@ public class Program {
 
 
     public static void main(String[] args) {
- addEntry();
- book.printAddressBook();
+        System.out.println("=========== Welcome to Address Book ==========");
+        boolean quit = false;
+        int choice = 0;
 
-//        boolean quit = false;
-//        int choice
+        do {
+            printInstructions();
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch(choice) {
+                case 1 -> addEntry();
+                case 2 -> removeEntry();
+                case 3 -> searchOptions();
+                case 4 -> book.printAddressBook();
+                case 5 -> clearBook();
+                case 6 -> quit = true;
+
+            }
+        } while(!quit);
 
     }
 }
