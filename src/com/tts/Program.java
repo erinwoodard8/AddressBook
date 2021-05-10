@@ -10,6 +10,7 @@ public class Program {
     private static AddressBook book = new AddressBook();
 
     public static void printInstructions() {
+        //create an exception for when someone types a letter instead of a number.
         System.out.println("\n Press To:");
         System.out.println("\t 1 - Add an Entry");
         System.out.println("\t 2 - Remove an Entry");
@@ -20,7 +21,7 @@ public class Program {
         System.out.println("Choose an option: ");
     }
     public static void addEntry() {
-
+//create a check to make sure these are in the correct format
         System.out.println("First Name: ");
         String first = scanner.next();
         System.out.println("Last Name: ");
@@ -59,6 +60,7 @@ public class Program {
     }
 
     public static void searchOptions() {
+        //create an exception for someone types a letter instead of number
             System.out.println("\t 1 - First Name");
             System.out.println("\t 2 - Last Name");
             System.out.println("\t 3 - Phone Number");
@@ -67,6 +69,9 @@ public class Program {
             int searchOption = scanner.nextInt();
             scanner.nextLine();
 
+            if(searchOption <= 0 || searchOption > 4) {
+                System.out.println("Invalid option, please try again");
+            }
             switch(searchOption) {
                 case 1 -> searchFirstName();
                 case 2 -> searchLastName();
