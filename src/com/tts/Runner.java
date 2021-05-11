@@ -17,7 +17,7 @@ public class Runner {
             try {
                 choice = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println();
+//                System.out.println();
             }
             scanner.nextLine();
             if (choice <=0 || choice > 7){

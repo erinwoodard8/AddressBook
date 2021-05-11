@@ -1,6 +1,7 @@
 package com.tts;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,11 +47,37 @@ public class ProgramMethods {
         String email = scanner.next();
 
 //checks to make sure the email doesn't already exist by comparing the return of .addAddressBook()
-        if (book.addAddressBook(first, last, phone, email) == true) {
-            System.out.println("Entry added!!   :)");
-        } else{
-            System.out.println("Email already exists within Address Book.");
+
+        while (book.addAddressBook(first, last, phone, email) == false) {
+            System.out.println("Email already exists within Address Book. Please try again.");
+            System.out.println("First Name: ");
+            first = scanner.next();
+            System.out.println("Last Name: ");
+            last = scanner.next();
+            System.out.println("Phone Number (###-###-#### / ###.###.####)");
+            phone = scanner.next();
+
+
+           pattern = Pattern.compile("^(\\d{3}[- .]?){2}\\d{4}$");
+           matcher = pattern.matcher(phone);
+
+            while(matcher.matches() != true) {
+                System.out.println("Wrong format, please try again.");
+                phone = scanner.next();
+                matcher = pattern.matcher(phone);
+            }
+            System.out.println("Email Address: ");
+            email = scanner.next();
         }
+
+        System.out.println("Entry added!! :)");
+
+
+//        if (book.addAddressBook(first, last, phone, email) == true) {
+//            System.out.println("Entry added!!   :)");
+//        } else{
+//            System.out.println("Email already exists within Address Book.");
+//        }
     }
 
 
@@ -86,7 +113,11 @@ public class ProgramMethods {
         System.out.println("\t 3 - Phone Number");
         System.out.println("\t 4 - Email Address");
         System.out.println("Choose a search option: ");
-        int searchOption = scanner.nextInt();
+        int searchOption = 0;
+        try {
+            searchOption = scanner.nextInt();
+        } catch (InputMismatchException e) {
+        }
         scanner.nextLine();
 
         if(searchOption <= 0 || searchOption > 4) {
@@ -98,6 +129,8 @@ public class ProgramMethods {
             case 3 -> searchPhoneNumber(scanner, book);
             case 4 -> searchEmailAddy(scanner, book);
         }
+
+
     }
 
     public static void searchFirstName(Scanner scanner, AddressBook book) {
