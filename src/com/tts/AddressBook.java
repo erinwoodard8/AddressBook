@@ -68,7 +68,9 @@ public class AddressBook {
     public void restore() {
         if(storedEntry != null) {
             addressBook.add(storedEntry);
-            System.out.println("Entry has been restored");
+            System.out.println(storedEntry.getEmail() + " has been restored");
+        } else {
+            System.out.println("Error: No email has been deleted");
         }
     }
 
@@ -93,6 +95,7 @@ public class AddressBook {
 //    ======================= PRINT ADDRESS BOOK METHOD ========================
     //loops through the ArrayList and prints out the information in the required format
     public void printAddressBook() {
+        System.out.println("******** ADDRESS BOOK *********");
         if (addressBook.isEmpty()) {
             System.out.println("There are no entries within your Address Book");
         } else {

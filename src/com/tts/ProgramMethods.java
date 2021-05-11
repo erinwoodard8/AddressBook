@@ -86,11 +86,11 @@ public class ProgramMethods {
     public static void removeEntry(Scanner scanner, AddressBook book) {
 
         System.out.println("Please enter email of entry you wish to delete");
-        String email = scanner.nextLine();
+        String email = scanner.next();
         book.storeEntry(email);
 
         if (book.removeAddressBook(email) == true) {
-            System.out.println("Entry has been removed from Address Book");
+            System.out.println(email + " has been removed from Address Book");
         } else {
             System.out.println(email + " does not exist within Address Book");
         }
@@ -120,6 +120,8 @@ public class ProgramMethods {
         } catch (InputMismatchException e) {
             System.out.println("Something went wrong.");
         }
+
+        scanner.nextLine();
 
             switch(searchOption) {
                 case "1" -> searchFirstName(scanner, book);

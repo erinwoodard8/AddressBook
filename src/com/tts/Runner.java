@@ -20,6 +20,7 @@ public class Runner {
             } catch (InputMismatchException a) {
                 System.out.println("Something went wrong.");
             }
+//            scanner.nextLine();
 
             switch (choice) {
                 case "1" -> ProgramMethods.addEntry(scanner, book);
