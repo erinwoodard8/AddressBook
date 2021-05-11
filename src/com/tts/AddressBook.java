@@ -8,7 +8,7 @@ public class AddressBook {
     // creating a private instance of ArrayList using Entry as it's elements.
     private ArrayList<Entry> addressBook = new ArrayList<>();
 
-
+// ======================== ADD METHOD =========================
     //adds entry if the email does not already exist
     public boolean addAddressBook(String first, String last, String phone, String email) {
 
@@ -30,7 +30,7 @@ public class AddressBook {
         }
         return wasAdded;
     }
-
+// =============== REMOVE METHOD ==============================
     //the method removing the object from ArrayList.
     private void removeAddressBook(int position) {
         addressBook.remove(position);
@@ -53,6 +53,7 @@ public class AddressBook {
         return doesExist;
     }
 
+    // ========================== STORE/RESTORE METHOD =======================
     //create an object that will store the entry if it exists
     private Entry storedEntry = null;
     public void storeEntry (String email) {
@@ -70,7 +71,7 @@ public class AddressBook {
         }
     }
 
-
+// ======================== FIND EMAIL METHOD ===============================
     //loops through entries and finds the email that matches the user's input.
     //if the email is found, it will return the indexed position of that entry.
     private int findEmail(String searchEmail) {
@@ -87,6 +88,8 @@ public class AddressBook {
         return result;
     }
 
+
+//    ======================= PRINT ADDRESS BOOK METHOD ========================
     //loops through the ArrayList and prints out the information in the required format
     public void printAddressBook() {
         if (addressBook.isEmpty()) {
@@ -104,7 +107,7 @@ public class AddressBook {
         }
 
     }
-
+// ================================== SEARCH METHODS ====================================
     public ArrayList<Entry> searchFirst(String firstName) {
         ArrayList<Entry> searches = new ArrayList<>();
 
@@ -156,7 +159,7 @@ public class AddressBook {
         }
         return searches;
     }
-
+    //    ======================= DELETE ADDRESS BOOK METHOD ========================
     public void deleteAddressBook() {
         addressBook.clear();
     }

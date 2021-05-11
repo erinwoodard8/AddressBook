@@ -7,27 +7,27 @@ public class Entry {
     private String phone;
     private String email;
 // default constructor
-    public Entry(){
-        this.firstName = "Default First Name";
-        this.lastName = "Default Last Name";
-        this.phone = "Default Phone Number";
-        this.email = "Default Email";
-    }
-
-    //constructor passing only the name fields
-    public Entry(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = "N/A";
-        this.email = "N/A";
-    }
-    //constructor passing the name and email fields
-    public Entry(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = "N/A";
-        this.email = email;
-    }
+//    public Entry(){
+//        this.firstName = "Default First Name";
+//        this.lastName = "Default Last Name";
+//        this.phone = "Default Phone Number";
+//        this.email = "Default Email";
+//    }
+//
+//    //constructor passing only the name fields
+//    public Entry(String firstName, String lastName) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.phone = "N/A";
+//        this.email = "N/A";
+//    }
+//    //constructor passing the name and email fields
+//    public Entry(String firstName, String lastName, String email) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.phone = "N/A";
+//        this.email = email;
+//    }
 
 
     // constructor passing all of the fields

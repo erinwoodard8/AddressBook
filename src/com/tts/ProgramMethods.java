@@ -22,7 +22,7 @@ public class ProgramMethods {
         System.out.println("Choose an option: ");
     }
 
-// ============================ EDITING METHODS ===============================
+    // ======================== ADD METHOD =========================
     public static void addEntry(Scanner scanner, AddressBook book) {
 //create a check to make sure these are in the correct format
         System.out.println("First Name: ");
@@ -80,7 +80,7 @@ public class ProgramMethods {
 //        }
     }
 
-
+    // =============== REMOVE METHOD ==============================
     //searches for email in book and removes that entry if entry exists.
     //it also will store that entry so that it can be restored.
     public static void removeEntry(Scanner scanner, AddressBook book) {
