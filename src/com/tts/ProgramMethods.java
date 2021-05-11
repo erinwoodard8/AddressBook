@@ -19,7 +19,7 @@ public class ProgramMethods {
         System.out.println("Choose an option: ");
     }
 
-
+// ============================ EDITING METHODS ===============================
     public static void addEntry(Scanner scanner, AddressBook book) {
 //create a check to make sure these are in the correct format
         System.out.println("First Name: ");
@@ -71,6 +71,9 @@ public class ProgramMethods {
         System.out.println("All entries have been deleted.");
     }
 
+
+
+    // ========================== SEARCH METHODS ============================
     public static void searchOptions(Scanner scanner, AddressBook book) {
         //create an exception for someone types a letter instead of number
         System.out.println("\t 1 - First Name");
