@@ -113,24 +113,21 @@ public class ProgramMethods {
         System.out.println("\t 3 - Phone Number");
         System.out.println("\t 4 - Email Address");
         System.out.println("Choose a search option: ");
-        int searchOption = 0;
+        String searchOption = null;
+
         try {
-            searchOption = scanner.nextInt();
+            searchOption = scanner.next();
         } catch (InputMismatchException e) {
-        }
-        scanner.nextLine();
-
-        if(searchOption <= 0 || searchOption > 4) {
-            System.out.println("Invalid option, please try again");
-        }
-        switch(searchOption) {
-            case 1 -> searchFirstName(scanner, book);
-            case 2 -> searchLastName(scanner, book);
-            case 3 -> searchPhoneNumber(scanner, book);
-            case 4 -> searchEmailAddy(scanner, book);
+            System.out.println("Something went wrong.");
         }
 
-
+            switch(searchOption) {
+                case "1" -> searchFirstName(scanner, book);
+                case "2" -> searchLastName(scanner, book);
+                case "3" -> searchPhoneNumber(scanner, book);
+                case "4" -> searchEmailAddy(scanner, book);
+                default -> printInstructions();
+        }
     }
 
     public static void searchFirstName(Scanner scanner, AddressBook book) {

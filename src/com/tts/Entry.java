@@ -6,6 +6,8 @@ public class Entry {
     private String lastName;
     private String phone;
     private String email;
+
+
 // default constructor
 //    public Entry(){
 //        this.firstName = "Default First Name";
@@ -37,6 +39,7 @@ public class Entry {
         this.phone = phone;
         this.email = email;
     }
+
     @Override
     public String toString(){
 
@@ -45,6 +48,7 @@ public class Entry {
                 "\n Phone Number: " + this.phone +
                 "\n Email: " + this.email;
     }
+
 //Getters
     public String getFirstName() {
         return firstName;

@@ -68,6 +68,7 @@ public class AddressBook {
     public void restore() {
         if(storedEntry != null) {
             addressBook.add(storedEntry);
+            System.out.println("Entry has been restored");
         }
     }
 

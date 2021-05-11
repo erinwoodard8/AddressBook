@@ -10,33 +10,29 @@ public class Runner {
 
         System.out.println("=========== Welcome to Address Book ==========");
         boolean quit = false;
-        int choice = 0;
+        String choice = null;
 
-        do {
+        while(!quit) {
             ProgramMethods.printInstructions();
+
             try {
-                choice = scanner.nextInt();
-            } catch (InputMismatchException e) {
-//                System.out.println();
-            }
-            scanner.nextLine();
-            if (choice <=0 || choice > 7){
-                System.out.println("Invalid option, please try again.");
+                choice = scanner.next();
+            } catch (InputMismatchException a) {
+                System.out.println("Something went wrong.");
             }
 
-
-
-            switch(choice) {
-                case 1 -> ProgramMethods.addEntry(scanner, book);
-                case 2 -> ProgramMethods.removeEntry(scanner, book);
-                case 3 -> book.restore();
-                case 4 -> ProgramMethods.searchOptions(scanner, book);
-                case 5 -> book.printAddressBook();
-                case 6 -> ProgramMethods.clearBook(book);
-                case 7 -> quit = true;
+            switch (choice) {
+                case "1" -> ProgramMethods.addEntry(scanner, book);
+                case "2" -> ProgramMethods.removeEntry(scanner, book);
+                case "3" -> book.restore();
+                case "4" -> ProgramMethods.searchOptions(scanner, book);
+                case "5" -> book.printAddressBook();
+                case "6" -> ProgramMethods.clearBook(book);
+                case "7" -> quit = true;
+                default -> System.out.println("Please try again.");
 
             }
-        } while(!quit);
+        }
     }
 }
 
