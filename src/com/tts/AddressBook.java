@@ -53,6 +53,23 @@ public class AddressBook {
         return doesExist;
     }
 
+    //create an object that will store the entry if it exists
+    private Entry storedEntry = null;
+    public void storeEntry (String email) {
+        Entry savedEntry = null;
+        int position = findEmail(email);
+        if(position >= 0){
+            savedEntry = addressBook.get(position);
+        }
+       storedEntry = savedEntry;
+    }
+    //adds that storedEntry back into the ArrayList/AddressBook
+    public void restore() {
+        if(storedEntry != null) {
+            addressBook.add(storedEntry);
+        }
+    }
+
 
     //loops through entries and finds the email that matches the user's input.
     //if the email is found, it will return the indexed position of that entry.

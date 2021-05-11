@@ -7,15 +7,17 @@ import java.util.regex.Pattern;
 
 public class ProgramMethods {
 
+
     public static void printInstructions() {
         //create an exception for when someone types a letter instead of a number.
         System.out.println("\n Press To:");
         System.out.println("\t 1 - Add an Entry");
         System.out.println("\t 2 - Remove an Entry");
-        System.out.println("\t 3 - Search for a specific Entry");
-        System.out.println("\t 4 - Print Address Book");
-        System.out.println("\t 5 - Delete entire Address Book");
-        System.out.println("\t 6 - Quit");
+        System.out.println("\t 3 - Restore last removed entry");
+        System.out.println("\t 4 - Search for a specific Entry");
+        System.out.println("\t 5 - Print Address Book");
+        System.out.println("\t 6 - Delete entire Address Book");
+        System.out.println("\t 7 - Quit");
         System.out.println("Choose an option: ");
     }
 
@@ -49,21 +51,24 @@ public class ProgramMethods {
         } else{
             System.out.println("Email already exists within Address Book.");
         }
-
     }
 
-    //searches for email in book and removes that entry if entry exists
+
+    //searches for email in book and removes that entry if entry exists.
+    //it also will store that entry so that it can be restored.
     public static void removeEntry(Scanner scanner, AddressBook book) {
+
         System.out.println("Please enter email of entry you wish to delete");
         String email = scanner.nextLine();
+        book.storeEntry(email);
 
-        if(book.removeAddressBook(email) == true) {
-            book.removeAddressBook(email);
+        if (book.removeAddressBook(email) == true) {
             System.out.println("Entry has been removed from Address Book");
         } else {
             System.out.println(email + " does not exist within Address Book");
         }
     }
+
 
     //deletes the entire AddressBook.
     public static void clearBook(AddressBook book) {

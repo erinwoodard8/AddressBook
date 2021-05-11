@@ -20,7 +20,7 @@ public class Runner {
                 System.out.println();
             }
             scanner.nextLine();
-            if (choice <=0 || choice > 6){
+            if (choice <=0 || choice > 7){
                 System.out.println("Invalid option, please try again.");
             }
 
@@ -29,10 +29,12 @@ public class Runner {
             switch(choice) {
                 case 1 -> ProgramMethods.addEntry(scanner, book);
                 case 2 -> ProgramMethods.removeEntry(scanner, book);
-                case 3 -> ProgramMethods.searchOptions(scanner, book);
-                case 4 -> book.printAddressBook();
-                case 5 -> ProgramMethods.clearBook(book);
-                case 6 -> quit = true;
+                case 3 -> book.restore();
+                case 4 -> ProgramMethods.searchOptions(scanner, book);
+                case 5 -> book.printAddressBook();
+                case 6 -> ProgramMethods.clearBook(book);
+                case 7 -> quit = true;
+
             }
         } while(!quit);
     }
