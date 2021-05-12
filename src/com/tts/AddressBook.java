@@ -15,12 +15,12 @@ public class AddressBook {
         boolean wasAdded;
         //loops through all emails within AddressBook
         findEmail(email);
-        //if email already exists, it won't be added
+        //if email already exists, it will return false.
         if (findEmail(email) >= 0) {
             wasAdded = false;
 
         } else {
-            //if email does not already exist, entry will be added
+            //if email does not already exist, it will return true.
             wasAdded = true;
             //passes in the String parameters and creates a new Entry object passing
             //in the parameters into the Entry constructor.
@@ -77,6 +77,7 @@ public class AddressBook {
 // ======================== FIND EMAIL METHOD ===============================
     //loops through entries and finds the email that matches the user's input.
     //if the email is found, it will return the indexed position of that entry.
+    // if the email is not found it will return -1.
     private int findEmail(String searchEmail) {
         int result = -1;
 
@@ -112,6 +113,9 @@ public class AddressBook {
 
     }
 // ================================== SEARCH METHODS ====================================
+
+//loops through the ArrayList and finds all FirstNames that contain the characters to user requests (String firstName)
+//if any are found, they are added to a separate ArrayList called searches and then searches is returned.
     public ArrayList<Entry> searchFirst(String firstName) {
         ArrayList<Entry> searches = new ArrayList<>();
 
@@ -124,7 +128,7 @@ public class AddressBook {
         }
         return searches;
     }
-
+//works the same way as the above code.
     public ArrayList<Entry> searchLast(String lastName){
         ArrayList<Entry> searches = new ArrayList<>();
 
@@ -137,7 +141,7 @@ public class AddressBook {
         }
         return searches;
     }
-
+    //works the same way as the above code.
     public ArrayList<Entry> searchPhone(String phone){
         ArrayList<Entry> searches = new ArrayList<>();
 
@@ -150,7 +154,7 @@ public class AddressBook {
         }
         return searches;
     }
-
+    //works the same way as the above code.
     public ArrayList<Entry> searchEmail(String email){
         ArrayList<Entry> searches = new ArrayList<>();
 
@@ -164,6 +168,8 @@ public class AddressBook {
         return searches;
     }
     //    ======================= DELETE ADDRESS BOOK METHOD ========================
+
+    // Uses ArrayList class method .clear() to clear the entire ArrayList addressBook
     public void deleteAddressBook() {
         addressBook.clear();
     }

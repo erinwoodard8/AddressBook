@@ -10,7 +10,7 @@ public class ProgramMethods {
 
 
     public static void printInstructions() {
-        //create an exception for when someone types a letter instead of a number.
+
         System.out.println("\n Press To:");
         System.out.println("\t 1 - Add an Entry");
         System.out.println("\t 2 - Remove an Entry");
@@ -24,7 +24,7 @@ public class ProgramMethods {
 
     // ======================== ADD METHOD =========================
     public static void addEntry(Scanner scanner, AddressBook book) {
-//create a check to make sure these are in the correct format
+
         System.out.println("First Name: ");
         String first = scanner.next();
         System.out.println("Last Name: ");
@@ -32,7 +32,7 @@ public class ProgramMethods {
         System.out.println("Phone Number (###-###-#### / ###.###.####)");
         String phone = scanner.next();
 
-
+// matcher checks to make sure the pattern is correct for phone numbers using regex while the .matches is false.
         Pattern pattern = Pattern.compile("^(\\d{3}[- .]?){2}\\d{4}$");
         Matcher matcher = pattern.matcher(phone);
 
@@ -47,7 +47,7 @@ public class ProgramMethods {
         String email = scanner.next();
 
 //checks to make sure the email doesn't already exist by comparing the return of .addAddressBook()
-
+// this looks like repeat code, but it needs to repeat above code if .addAddressBook returns false.
         while (book.addAddressBook(first, last, phone, email) == false) {
             System.out.println("Email already exists within Address Book. Please try again.");
             System.out.println("First Name: ");
@@ -72,17 +72,11 @@ public class ProgramMethods {
 
         System.out.println("Entry added!! :)");
 
-
-//        if (book.addAddressBook(first, last, phone, email) == true) {
-//            System.out.println("Entry added!!   :)");
-//        } else{
-//            System.out.println("Email already exists within Address Book.");
-//        }
     }
 
     // =============== REMOVE METHOD ==============================
+
     //searches for email in book and removes that entry if entry exists.
-    //it also will store that entry so that it can be restored.
     public static void removeEntry(Scanner scanner, AddressBook book) {
 
         System.out.println("Please enter email of entry you wish to delete");
@@ -131,7 +125,7 @@ public class ProgramMethods {
                 default -> printInstructions();
         }
     }
-
+// using .searchFirst method and stores results in an ArrayList. Returns ArrayList.
     public static void searchFirstName(Scanner scanner, AddressBook book) {
         System.out.println("Enter your search: ");
         String search = scanner.nextLine();
@@ -145,7 +139,7 @@ public class ProgramMethods {
             results.forEach(result -> System.out.println(result));
         }
     }
-
+    // using .searchLast method and stores results in an ArrayList. Returns ArrayList.
     public static void searchLastName(Scanner scanner, AddressBook book) {
         System.out.println("Enter your search: ");
         String search = scanner.nextLine();
@@ -154,7 +148,7 @@ public class ProgramMethods {
         //treats ArrayList elements as objects and prints each one out
         results.forEach(result -> System.out.println(result));
     }
-
+    // using .searchPhone method and stores results in an ArrayList. Returns ArrayList.
     public static void searchPhoneNumber(Scanner scanner, AddressBook book) {
         System.out.println("Enter your search: ");
         String search = scanner.nextLine();
@@ -163,7 +157,7 @@ public class ProgramMethods {
         //treats ArrayList elements as objects and prints each one out
         results.forEach(result -> System.out.println(result));
     }
-
+    // using .searchEmail method and stores results in an ArrayList. Returns ArrayList.
     public static void searchEmailAddy(Scanner scanner, AddressBook book) {
         System.out.println("Enter your search: ");
         String search = scanner.nextLine();
